@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Planet;
-use Illuminate\Http\Request;
+use App\Http\Requests\PlanetRequest;
 
 class PlanetController extends Controller
 {
@@ -21,7 +21,7 @@ class PlanetController extends Controller
     }
 
     //storeページ
-    public function store(Request $request)
+    public function store(PlanetRequest $request)
     {
         //インスタンスの作成
         $planet = new Planet;
@@ -54,7 +54,7 @@ class PlanetController extends Controller
     }
 
     //updateページ
-    public function update(Request $request, $id)
+    public function update(PlanetRequest $request, $id)
     {
         //インスタンスの作成
         $planet = Planet::find($id);

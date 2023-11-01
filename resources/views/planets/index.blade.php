@@ -28,9 +28,15 @@
         <td>{{ $planet->name_en }}</td>
         <td>{{ $planet->radius }}</td>
         <td>{{ $planet->weight }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><a href="{{ route("planets.show", $planet) }}">詳細</a></td>
+        <td><a href="{{ route("planets.edit", $planet) }}">編集</a></td>
+        <td>
+            <form action="{{ route('planets.destroy', $planet) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="削除する" onclick="if(!confirm('削除しますか?')){return false};">
+            </form>
+        </td>
         </tr>
         @endforeach
     </table>
